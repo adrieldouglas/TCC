@@ -1,0 +1,117 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.5-10.4.25-MariaDB
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema projeto
+--
+
+CREATE DATABASE IF NOT EXISTS projeto;
+USE projeto;
+
+--
+-- Definition of table `failed_jobs`
+--
+
+DROP TABLE IF EXISTS `failed_jobs`;
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `failed_jobs`
+--
+
+/*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
+
+
+--
+-- Definition of table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` (`id`,`migration`,`batch`) VALUES 
+ (1,'2014_10_12_000000_create_users_table',1),
+ (2,'2019_08_19_000000_create_failed_jobs_table',1);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+
+
+--
+-- Definition of table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cover` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `level` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`,`name`,`email`,`email_verified_at`,`password`,`cover`,`level`,`remember_token`,`created_at`,`updated_at`,`deleted_at`) VALUES 
+ (13,'Adriel Douglas Miranda das Neves','dev@gmail.com',NULL,'$2y$10$fyxYh4E0tJ2HhRgHVba1q.GEa2hPRJ5pDp1.x3cYEM86H72IF2d8K','photo_user/Qkqv0ihcLYMAS6dp88ry6X1eBQyqyTXCzlE7Tnrt.jpg','administrador',NULL,'2022-10-21 11:49:09','2022-10-31 15:55:19',NULL),
+ (14,'Adriana Dias','adriana@gmail.com',NULL,'$2y$10$sNnIjhERzJRUS/hkPfvmHeALW2nzzyjtIbs9VsmH1Jsc/MBO47hHi','photo_user/Qv5yTMhIPm2WFpiXUF0YeeFrFL9oxE7j6vAIviO5.jpg','administrador',NULL,'2022-10-21 12:10:04','2022-10-29 19:18:48',NULL),
+ (15,'Caio','caio@gmail.com',NULL,'$2y$10$Bumt0gLnIII9oBomdPpHpuu6KCrvEyYpn7GhEm659fRHhW1ryafwW','photo_user/HGt2MwtU6ebDKj7cApZFhfZAqeVdSkt7FwKfk9WD.jpg','docente',NULL,'2022-10-21 12:11:29','2022-10-24 16:27:01',NULL),
+ (17,'Professor Max','max@gmail.com',NULL,'$2y$10$Wy3yQC65hBZlZ7omXueSousmXwbdm.ukzEYS8sCuCXs9739A3ihFK','photo_user/pUbAMv5HnrzdVlswg0dulATZ0MBgUcThqI1avPYd.jpg','docente',NULL,'2022-10-21 12:15:27','2022-10-24 16:30:46',NULL),
+ (18,'Diretor Sergio','sergio@gmail.com',NULL,'$2y$10$9PmBy9gT293X9mskjb8ooeKx7uKaPft.32m13arUlWzd2ckiEP2t2','photo_user/hrXK6v3o7NB7esyMnYj13jkRWlIol0eDJ1WlahqV.jpg','administrador',NULL,'2022-10-21 12:17:27','2022-10-24 16:27:09',NULL),
+ (19,'Talia Gomes','talia@gmail.com',NULL,'',NULL,'docente',NULL,'2022-10-21 12:56:46','2022-10-29 19:01:24','2022-10-29 19:01:24'),
+ (20,'cxzcxzcxzcxz','caioxcxcx@gmail.com',NULL,'$2y$10$Sb1.enXm1a4HjI5r8eLxMucmMz/XTugMnQTjIy0FTpv.UV1GYuViy',NULL,'docente',NULL,'2022-10-24 16:38:34','2022-10-24 16:39:39','2022-10-24 16:39:39'),
+ (21,'Sombra','adrielnevedss34@gmail.com',NULL,'$2y$10$4cQSJTY/5oMEWryovWpGtel2lcEwGElwfrHi2vkbGcKlzoZaHADxm',NULL,'administrador',NULL,'2022-10-24 16:39:22','2022-10-24 16:40:07','2022-10-24 16:40:07'),
+ (22,'teste','caiocc@gmail.com',NULL,'$2y$10$gsXo55szgx2OxGWRn2Rxpe/Y1fRepaKZIeRtv7OexKAcyiBVPHCEa',NULL,'docente',NULL,'2022-10-29 18:56:18','2022-10-29 18:58:42','2022-10-29 18:58:42');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
