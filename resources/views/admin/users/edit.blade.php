@@ -1,5 +1,7 @@
 @extends('admin.layouts.master')
 
+<title>{{ $user->name }}</title>
+
 @section('content')
 
 <div class="container">
@@ -111,7 +113,7 @@
                                     <label for="level">Status<i class="bi bi-asterisk small text-danger"></i></label>
                                     <select class="form-control {{ $errors->has('level') ? 'is-invalid' : '' }}" name="level">
                                         <option disabled selected>Selecione o Nível</option>
-                                        <option value="admin" {{ (old('level')=='admin' ? 'selected' : ($user->level == 'admin' ? 'selected' : '') ) }}>Administrador</option>
+                                        <option value="administrador" {{ (old('level')=='administrador' ? 'selected' : ($user->level == 'administrador' ? 'selected' : '') ) }}>Administrador</option>
                                         <option value="docente" {{ (old('level')=='docente' ? 'selected' : ($user->level == 'docente' ? 'selected' : '') ) }}>Docente</option>
                                     </select>
 
@@ -125,29 +127,8 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <a href="" class="btn btn-success" title="Editar {{ $user->name }}" data-toggle="modal" data-target="#to_edit">Editar</a>
+                                <button type="submit" class="btn btn-success" title="Editar {{ $user->name }}" >Editar</button>
                                 <a href="{{ route('admin.users.index') }}" class="btn btn-secondary" title="Cancelar">Cancelar</a>
-
-                                <!-- Modal to edit -->
-                                <div class="modal fade" id="to_edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Aviso</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h4 class="text-center"><i class="bi bi-info-circle"></i> Deseja editar essa conta?</h4>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" title="Não" class="btn btn-secondary" data-dismiss="modal"><i class="bi bi-x-lg"></i> Não</button>
-                                                <button type="submit" title="Sim" class="btn btn-success"><i class="bi bi-check2-circle"></i> Sim</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -20,8 +20,13 @@
                 <h4 class="text-center"><i class="bi bi-info-circle"></i> Deseja enviar essa conta para lixeira?</h4>
             </div>
             <div class="modal-footer">
-                <button type="button" title="Não" class="btn btn-secondary" data-dismiss="modal"><i class="bi bi-x-lg"></i> Não</button>
-                <button type="submit" title="Sim" class="btn btn-success"><i class="bi bi-check2-circle"></i> Sim</button>
+                <form action="{{ route('admin.users.destroy', $user->id) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="button" title="Não" class="btn btn-secondary" data-dismiss="modal"><i class="bi bi-x-lg"></i> Não</button>
+                    <button type="submit" title="Sim" class="btn btn-success"><i class="bi bi-check2-circle"></i> Sim</button>
+                </form>
             </div>
         </div>
     </div>

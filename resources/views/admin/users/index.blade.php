@@ -15,6 +15,18 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-sm-12 mt-2">
+            @if(session('message'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="bi bi-check-circle"></i> {{session('message')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
+        </div>
+    </div>
+    <div class="row">
         <div class="col-sm-12">
             <div class="card mt-1">
                 <div class="card-body">
@@ -25,12 +37,17 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-4">
-                            <div class="input-group">
-                                <input type="search" name="search" class="form-control" placeholder="Pesquisar nome">
-                                <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
-                            </div>
+                            <form action="{{ route('admin.users.search_user') }}" method="post" enctype="multipart/form-data">
+                                @csrf
+
+                                <div class="input-group">
+                                    <input type="search" name="search_user" class="form-control" placeholder="Pesquisar nome">
+                                    <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
+                                </div>
+                            </form>
                         </div>
                     </div>
+                    @if(count($users) > 0)
                     <table class="table table-hover mt-2">
                         <thead>
                             <tr>
@@ -47,14 +64,13 @@
                                 <th scope="row">{{ $user->id }}</th>
                                 <td>
                                     @if($user->cover != null)
-                                    <a href="" class="text-muted"><img src="{{ url('storage/'. $user->cover) }}" class="circle-image"> {{ $user->name }}</a>
+                                    <img src="{{ url('storage/'. $user->cover) }}" class="circle-image"> {{ $user->name }}
 
                                     @else
 
-                                    <a href="" class="text-muted"><img src="{{ url('assets/background/avatar.png') }}" class="rounded" width="40"> {{ $user->name }}</a>
-                                    @endif
+                                    <img src="{{ url('assets/background/avatar.png') }}" class="rounded" width="40"> {{ $user->name }} @endif
                                 </td>
-                                <td><a href="" class="text-muted">{{ $user->email }}</a></td>
+                                <td>{{ $user->email }}</td>
                                 <td class="text-uppercase">{{ $user->level }}</td>
                                 <td>
                                     <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-primary" title="Editar {{ $user->name }}"><i class="bi bi-pencil-square"></i></a>
@@ -67,6 +83,10 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @else
+                    <img src="{{ url('assets/gif/search-null.gif') }}" class="img-fluid rounded mx-auto d-block" width="200">
+                    <div class="text-center text-muted">Nenhum registro no momento!</div>
+                    @endif
                 </div>
             </div>
         </div>

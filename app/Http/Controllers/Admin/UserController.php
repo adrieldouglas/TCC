@@ -44,10 +44,13 @@ class UserController extends Controller {
     }
 
     public function edit($id) {
+        $tit_edit = 'Editar';
+
         $user = User::where('id', $id)->first();
 
         return view('admin.users.edit', [
-            'user' => $user
+            'user' => $user,
+            'tit_edit' => $tit_edit
         ]);
     }
 
@@ -72,6 +75,29 @@ class UserController extends Controller {
         return redirect()->route('admin.users.edit',[
             $user->id
         ])->with('message', 'Conta editado com sucesso!');
+    }
+
+    public function destroy($id){
+        $user = User::find($id);
+
+        $user->delete();
+
+        return redirect()->route('admin.users.index')->with('message', 'Conta enviada para lixeira!');
+    }
+
+    public function search_user(Request $request){
+        $tit_user = 'Pesquisado';
+
+        $users = User::where( 'id', '=', "%{$request->search_user}%" )
+
+        ->orWhere( 'name', 'LIkE', "%{$request->search_user}%" )
+        ->paginate();
+
+        return view( 'admin.users.index', [
+            'users' => $users,
+            'tit_user' => $tit_user
+        ]);
+
     }
 
 }

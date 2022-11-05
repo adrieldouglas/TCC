@@ -31,7 +31,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
         Route::post('users/store', 'UserController@store')->name('users.store');
         Route::get('users/edit/{id}', 'UserController@edit')->name('users.edit');
         Route::put('users/update/{id}', 'UserController@update')->name('users.update');
-        Route::delete('user/destroy/{id}', 'UserController@destroy')->name('users.destroy');
+        Route::delete('users/destroy/{id}', 'UserController@destroy')->name('users.destroy');
+        Route::post('users/search-user', 'UserController@search_user')->name('users.search_user');
+
+        /* teacher */
+        Route::get('teachers', 'TeacherController@index')->name('teachers.index');
+
     });
 
     /* LOGOUT */

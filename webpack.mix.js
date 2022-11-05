@@ -11,41 +11,41 @@ const mix = require('laravel-mix');
  |
  */
 
- mix
- .sass('resources/views/admin/assets/scss/reset.scss', 'public/assets/css/reset.css')
- .sass('resources/views/admin/assets/scss/boot.scss', 'public/assets/css/boot.css')
- .sass('resources/views/admin/assets/scss/login.scss', 'public/assets/css/login.css')
+mix
+    .sass('resources/views/admin/assets/scss/reset.scss', 'public/assets/css/reset.css')
+    .sass('resources/views/admin/assets/scss/boot.scss', 'public/assets/css/boot.css')
+    .sass('resources/views/admin/assets/scss/login.scss', 'public/assets/css/login.css')
 
- .styles([
+    .styles([
 
- 	'resources/views/admin/assets/css/bootstrap.min.css',
+     'resources/views/admin/assets/css/bootstrap.min.css',
 
- 	], 'public/assets/css/bootstrap.css')
+     ], 'public/assets/css/bootstrap.css')
 
- .styles([
+    .styles([
 
- 	'resources/views/admin/assets/css/style.css',
+     'resources/views/admin/assets/css/style.css',
 
- 	], 'public/assets/css/style.css')
+     ], 'public/assets/css/style.css')
 
- .scripts([
- 	'resources/views/admin/assets/js/bootstrap.bundle.min.js',
- 	], 'public/assets/js/bundle.js')
+    .scripts([
+     'resources/views/admin/assets/js/bootstrap.bundle.min.js',
+     ], 'public/assets/js/bundle.js')
 
- .scripts([
- 	'resources/views/admin/assets/js/login.js',
- 	], 'public/assets/js/login.js')
+    .scripts([
+     'resources/views/admin/assets/js/login.js',
+     ], 'public/assets/js/login.js')
 
- .scripts([
- 	'resources/views/admin/assets/js/jquery.min.js',
- 	], 'public/assets/js/jquery.js')
+    .scripts([
+     'resources/views/admin/assets/js/jquery.min.js',
+     ], 'public/assets/js/jquery.js')
 
- .copyDirectory('resources/views/admin/assets/background', 'public/assets/background')
- .copyDirectory('resources/views/admin/assets/logotipo', 'public/assets/logotipo')
+    .copyDirectory('resources/views/admin/assets/background', 'public/assets/background')
+    .copyDirectory('resources/views/admin/assets/logotipo', 'public/assets/logotipo')
+    .copyDirectory('resources/views/admin/assets/gif', 'public/assets/gif')
 
- .options({
- 	processCssUrls: false
- })
+    .options({
+        processCssUrls: false
+    })
 
- .version()
- ;
+    .version();

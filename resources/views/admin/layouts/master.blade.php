@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="{{ url(mix('assets/css/bootstrap.css')) }}">
     <link rel="stylesheet" href="{{ url(mix('assets/css/style.css')) }}">
-    <link rel="icon" type="image/png" href="{{ url('assets/logotipo/logo.png') }}"/>
+    <link rel="icon" type="image/png" href="{{ url('assets/logotipo/logo.png') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -14,6 +15,7 @@
     @endif
 
 </head>
+
 <body style="background-color: #DCDCDC;">
 
     <nav class="navbar navbar-expand-sm navbar-light bg-white">
@@ -30,8 +32,8 @@
                 <li class="nav-item {{ isActive('admin.users') }}">
                     <a class="nav-link" href="{{ route('admin.users.index') }}"><i class="bi bi-people"></i> Conta de Acesso</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Docentes</a>
+                <li class="nav-item {{ isActive('admin.teachers') }}">
+                    <a class="nav-link" href="{{ route('admin.teachers.index') }}"><i class="bi bi-archive"></i> Docentes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Contatos</a>
@@ -50,12 +52,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Eventos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">WhatsApp</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Blogs</a>
                 </li>
             </ul>
 
@@ -89,4 +85,5 @@
     @endif
 
 </body>
+
 </html>
