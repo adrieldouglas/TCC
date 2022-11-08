@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="{{ url(mix('assets/css/style.css')) }}">
     <link rel="icon" type="image/png" href="{{ url('assets/logotipo/logo.png') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url('assets/js/jqueryte/jquery-te-1.4.0.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
 
     @hasSection('css')
     @yield('css')
@@ -79,6 +79,8 @@
 
     <script src="{{ url(mix('assets/js/jquery.js')) }}"></script>
     <script src="{{ url(mix('assets/js/bundle.js')) }}"></script>
+    <script src="{{ url('assets/js/jqueryte/jquery-te-1.4.0.min.js') }}"></script>
+    <script src="{{ url(mix('assets/js/jquery.mask.js')) }}"></script>
 
     @hasSection('script')
     @yield('script')

@@ -31,9 +31,7 @@ class UserController extends Controller {
     }
 
     public function store(Validate_User $request) {
-        $userCreate = User::create(
-                        $request->all()
-        );
+        $userCreate = User::create($request->all());
 
         if (!empty($request->file('cover'))) {
             $userCreate->cover = $request->file('cover')->store('photo_user');

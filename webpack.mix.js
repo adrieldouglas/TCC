@@ -40,9 +40,14 @@ mix
      'resources/views/admin/assets/js/jquery.min.js',
      ], 'public/assets/js/jquery.js')
 
+    .scripts([
+     'resources/views/admin/assets/js/jquery.mask.js',
+     ], 'public/assets/js/jquery.mask.js')
+
     .copyDirectory('resources/views/admin/assets/background', 'public/assets/background')
     .copyDirectory('resources/views/admin/assets/logotipo', 'public/assets/logotipo')
     .copyDirectory('resources/views/admin/assets/gif', 'public/assets/gif')
+    .copyDirectory('resources/views/admin/assets/js/jqueryte', 'public/assets/js/jqueryte')
 
     .options({
         processCssUrls: false

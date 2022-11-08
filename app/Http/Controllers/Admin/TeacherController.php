@@ -14,4 +14,12 @@ class TeacherController extends Controller
             'tit_teacher' => $tit_teacher
         ]);
     }
+
+    public function create(){
+        $tit_create = 'Adicionar Docente';
+
+        return view('admin.teachers.create', [
+            'tit_create' => $tit_create
+        ]);
+    }
 }

@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
 
         /* teacher */
         Route::get('teachers', 'TeacherController@index')->name('teachers.index');
+        Route::get('teachers/create', 'TeacherController@create')->name('teachers.create');
 
     });
 

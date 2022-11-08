@@ -32,7 +32,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-12">
-                            <a href="" class="btn btn-success btn-sm float-right mt-3"><i class="bi bi-plus-lg"></i> Adicionar</a>
+                            <a href="{{ route('admin.teachers.create') }}" class="btn btn-success btn-sm float-right mt-3"><i class="bi bi-plus-lg"></i> Adicionar</a>
                         </div>
                     </div>
                     <div class="row">
@@ -57,12 +57,10 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row"></th>
-                                <td>
-
-                                </td>
-                                <td><a href="" class="text-muted"></a></td>
-                                <td class="text-uppercase"></td>
+                                <th scope="row">1</th>
+                                <td><a href="" class="text-danger">Adriel Douglas Miranda das Neves</a></td>
+                                <td>Ciência da Computação</td>
+                                <td>Possui graduação em Matemática pela...</td>
                                 <td>
                                     <a href="" class="btn btn-sm btn-primary"><i class="bi bi-facebook"></i></a>
 
